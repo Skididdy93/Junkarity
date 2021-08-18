@@ -1,0 +1,16 @@
+#Junkarity
+##Online marketplace for Users to donate to Non-Profites and Charities by selling second hand goods.
+
+##TODO--8/4-8/11
+*Keyword Search-full name/category -- Trying to flesh this out, ran out of time.
+*Filter-Selected Categories -- No Update
+*Authentication-Use passport-local-mongoose --Needs to be tested, unsure of how to go about this.
+
+
+
+
+##TODO--8/11-8/18
+*Keyword Search-fullname/category
+*Filter by category
+*Authenticate Item route
+
