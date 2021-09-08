@@ -7,7 +7,6 @@ const router = require('express').Router();
 //New User
 router.post('/signup', function(req, res) {
 	User.register({username:req.body.username, active: false}, req.body.password, function(err, user) {
-//	User.register(Users, req.body.password, function(err, user) {
 		if (err) {
 			return res.json({success:false, message:"Your account could not be saved. Error: ", err})
 		}else{

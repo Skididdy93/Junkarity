@@ -4,7 +4,9 @@ const Schema = mongoose.Schema
 
 const categorySchema = new Schema({
     name: {type: String, required: true},
-})
+    updated_at: {type:Date, default: Date.now() },
+    created_at: {type: Date, default: Date.now()}
+});
 
 // Virtual for category URL
 categorySchema
