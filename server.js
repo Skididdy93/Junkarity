@@ -1,15 +1,15 @@
 const express = require('express');
 require('dotenv').config();
-const connectDB = require('./config/db');
+const connectDB = require('./backend/config/db');
 const app = express();
 const router = require('express').Router();
 const mongoose = require('mongoose');
-const {notFound, errorHandler} = require('./Middleware/error.js');
+const {notFound, errorHandler} = require('./backend/Middleware/error.js');
 const colors = require('colors');
 const cors = require('cors');
 const passport = require('passport');
 const source = process.env.ATLAS_CONNECTION;
-const {User} = require('./Models');
+const {User} = require('./backend/Models');
 app.use(cors());
 app.use(express.urlencoded({extended: true})); 
 app.use(express.json());
@@ -29,7 +29,7 @@ app.listen(PORT, ()=>{
 });
 
 //itemrouter mount
-const itemsRoute = require('./controllers/item.controller');
+const itemsRoute = require('./backend/controllers/item.controller');
 app.use('/item', itemsRoute);
 
 //passport-local-mongoose
@@ -37,7 +37,7 @@ const LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(User.authenticate()));
 
 //userroute mount
-const userRoutes = require('./controllers/user.controller');
+const userRoutes = require('./backend/controllers/user.controller');
 app.use('/user', userRoutes);
 
 //app.use(notFound);
