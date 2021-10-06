@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import { Button, FormGroup, FormControl as Control } from 'react-bootstrap';
 import axios from 'axios';
+import { bgWhite } from 'colors';
 
 export default class PostItem extends Component {
 	constructor(props) {
@@ -84,28 +85,53 @@ export default class PostItem extends Component {
 						<Control type='text' />
 					</FormGroup>
 
-					<FormGroup controlId='formControlsTextarea'>
-						<Form.Label>Item Description </Form.Label>
-						<Control componentClass='textarea' placeholder='textarea' />
-					</FormGroup>
+					<div class='form-group'>
+						<label for='itemDescription' class='form-label mt-4'>
+							Description
+						</label>
+						<textarea
+							class='form-control'
+							id='itemDescription'
+							rows='3'
+							spellcheck='false'
+						></textarea>
+					</div>
 
-					<FormGroup controlId='Price'>
-						<Form.Label> Price </Form.Label>
-						<Control type='text' />
-					</FormGroup>
+					<div class='input-group mb-3'>
+						<span class='input-group-text'>$</span>
+						<input type='text' class='form-control' aria-label='Price' />
+						<span class='input-group-text'>.00</span>
+					</div>
 
-					<Form.Group controlId='formFile' className='mb-3'>
-						<Form.Label>Insert an Image</Form.Label>
-						<Form.Control type='file' />
-					</Form.Group>
+					<div class='form-group'>
+						<label for='itemImage' class='form-label mt-4'>
+							Attach Photo
+						</label>
+						<input
+							class='form-control'
+							type='file'
+							id='itemImage'
+							background-color={bgWhite}
+						/>
+					</div>
 
-					<FormGroup controlId='formControlsSelect'>
-						<Form.Label> Select Category </Form.Label>
-						<Form.Control as='select'>
-							<option value='select'>select</option>
-							<option value='other'>...</option>
-						</Form.Control>
-					</FormGroup>
+					<div class='form-group'>
+						<label for='CategorySelect' class='form-label mt-4'>
+							Item Category
+						</label>
+						<select
+							class='form-select'
+							id='CategorySelect'
+							default='Pick a Category'
+							background-color={bgWhite}
+						>
+							<option>Electronics</option>
+							<option>Sports/Outdoors</option>
+							<option>Home Goods</option>
+							<option>Accessories</option>
+							<option>Other</option>
+						</select>
+					</div>
 
 					<Button
 						variant='danger'
@@ -113,7 +139,9 @@ export default class PostItem extends Component {
 						block='block'
 						type='submit'
 						value='Post Item'
-					/>
+					>
+						Post Item
+					</Button>
 				</Form>
 			</div>
 		);
