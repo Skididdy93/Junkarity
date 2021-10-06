@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import axios from 'axios';
-
 
 const Header = () => {
 
@@ -20,7 +18,7 @@ const Header = () => {
                         <Nav.Link><i className='fas fa-shopping-cart'/>Cart</Nav.Link>
                     </LinkContainer>
                     <LinkContainer to='/login'>
-                        <Nav.Link> <i className='fas fa-user'/> Sign In</Nav.Link> 
+                        <Nav.Link> <i className='fas fa-user'/> Sign In</Nav.Link>
                     </LinkContainer>
                     </Nav>
                 </Navbar.Collapse>

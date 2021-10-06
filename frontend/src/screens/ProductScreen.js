@@ -1,15 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, Image, ListGroup } from 'react-bootstrap';
-import axios from 'axios';
- 
+import { getItemById } from '../utils/fetchers'
+
 const ProductScreen = ({match}) => {
     const [product, setItem] = useState({})
-    
+
     useEffect(() => {
         const fetchItem = async () => {
-            const {data} = await axios.get(`/api/items/${match.params.id}`)
-
+            const data = await getItemById(match.params.id)
             setItem(data)
         }
 
@@ -29,10 +28,10 @@ const ProductScreen = ({match}) => {
                     <ListGroup.Item><h2>{product.name}</h2></ListGroup.Item>
                     <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
                     <ListGroup.Item>Description: {product.description}</ListGroup.Item>
-                </ListGroup>               
+                </ListGroup>
             </Col>
         </Row>
-    
+
     </>
 }
 

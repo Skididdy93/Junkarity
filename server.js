@@ -11,7 +11,7 @@ const passport = require('passport');
 const source = process.env.ATLAS_CONNECTION;
 const {User} = require('./Models');
 app.use(cors());
-app.use(express.urlencoded({extended: true})); 
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());

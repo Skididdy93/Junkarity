@@ -1,11 +1,11 @@
-import axios from "axios";
+import { getItems } from "../utils/fetchers";
 import { ITEM_LIST_FAIL, ITEM_LIST_REQUEST, ITEM_LIST_SUCCESS } from "../constants/itemConstants";
 
 export const listItems = () => async (dispatch) => {
     try{
         dispatch({type: ITEM_LIST_REQUEST})
 
-        const { data } = await axios.get('/item')
+        const data = await getItems();
 
         dispatch({
             type: ITEM_LIST_SUCCESS,
